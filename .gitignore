@@ -1,0 +1,21 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+Scripts/*
+Lib/*
+
+# Virtual environment
+venv/
+env/
+*.env
+.idea/*
+
+# Flask-specific
+instance/
+*.db
+
+# Streamlit-specific
+.streamlit/
+*.log
