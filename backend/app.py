@@ -26,25 +26,21 @@ def query():
     """
     # get the data/query from streamlit app
     query = request.get_json()
-    print("Received query: ", query.get('query'))
     
     # Step 1: Search and scrape articles based on the query
-    print(f"Step 1: searching articles for {query.get("query")}")
     searchResults = googlesearch.search(query.get("query"), advanced=True,num_results=4)
-    # print([(result.url) for result in searchResults])
 
-
+    
     # Step 2: Concatenate content from the scraped articles
-    print("Step 2: concatenating content")
     parsed_links = []
     for search in searchResults:
         data = requests.get(search.url)
         readableData = bs4.BeautifulSoup(data.text).get_text()
         parsed_links.append(readableData)
         parsed_links.append(";")
-    # Step 3: Generate an answer using the LLM
-    print("Step 3: generating answer")
-    
+
+
+    # Step 3: Generate an answer using the LLM    
     model = genai.GenerativeModel("gemini-1.5-flash")
     chat = model.start_chat(
         history=[
@@ -53,7 +49,6 @@ def query():
             ]
         )
     response = chat.send_message(f"{[parsed_link for parsed_link in parsed_links]}")
-    # return the jsonified text back to streamlit
     return response.text
 
 if __name__ == '__main__':
