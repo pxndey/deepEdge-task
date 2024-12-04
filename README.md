@@ -16,7 +16,6 @@ venv/Scripts/activate
 
 - Install required Dependencies from the root folder
 ```bash
-cd ..
 pip install -r requirements.txt
 ```
 
