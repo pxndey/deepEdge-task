@@ -5,7 +5,8 @@ __pycache__/
 
 Scripts/*
 Lib/*
-
+share/*
+etc/*
 # Virtual environment
 venv/
 env/
