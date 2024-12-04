@@ -20,7 +20,7 @@ cd ..
 pip install -r requirements.txt
 ```
 
-- Add an environment file (*.env*) in the root directory of the project with your Gemini API key in the following format:
+- Add an environment file (*.env*) in the backend directory of the project with your Gemini API key in the following format:
 
 ```text
 KEY=<API_KEY>
